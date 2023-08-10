@@ -2,6 +2,7 @@ import identity.web
 import requests
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask_session import Session
+import json
 
 import app_config
 
@@ -81,7 +82,8 @@ def serve_json():
     }
   ]
 }'''
-    return jsn
+    json_object = json.loads(jsn)
+    return json_object
 
 if __name__ == "__main__":
     app.run()

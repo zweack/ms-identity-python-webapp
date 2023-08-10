@@ -72,6 +72,16 @@ def call_downstream_api():
     ).json()
     return render_template('display.html', result=api_result)
 
+@app.route("/.well-known/microsoft-identity-association.json")
+def serve_json():
+    jsn = '''{
+  "associatedApplications": [
+    {
+      "applicationId": "a3403fca-8422-4df7-8876-2cb09ac1bb3e"
+    }
+  ]
+}'''
+    return jsn
 
 if __name__ == "__main__":
     app.run()
